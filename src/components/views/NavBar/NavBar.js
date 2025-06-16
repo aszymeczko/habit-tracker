@@ -9,9 +9,10 @@ import { Box } from "@mui/material";
 const NavBar = () => {
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         height: 80,
+        zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
       <Box
@@ -21,11 +22,11 @@ const NavBar = () => {
           <Box
             className="material-symbols-outlined"
             sx={{
-              fontSize: 50,
-              color: "#fff", // Domyślny kolor
-              transition: "color 0.2s", // Płynne przejście koloru i obwódki
+              fontSize: 45,
+              color: "#A9746E", // Domyślny kolor
+              transition: "color 0.2s",
               "&:hover": {
-                color: "#ff7675", // Kolor ikony po najechaniu
+                color: "#9C7CA5", // Kolor ikony po najechaniu
               },
             }}
           >
@@ -33,18 +34,14 @@ const NavBar = () => {
           </Box>
         </IconButton>
 
-        <Typography variant="h4" sx={{ flexGrow: 1, ml: 3 }}>
+        <Typography sx={{ flexGrow: 1 }}>
           <Box
             component={NavLink}
             to="/"
             sx={{
-              textDecoration: "none", // Brak dekoracji tekstu
-              color: "#fff", // Domyślny kolor
-              fontSize: 40,
-              transition: "color 0.2s, border 0.2s", // Płynne przejście na hover
-              "&:hover": {
-                color: "#ff7675", // Kolor tekstu po najechaniu
-              },
+              textDecoration: "none",
+              color: "#000",
+              fontSize: 26,
             }}
           >
             Habit Tracker
@@ -56,25 +53,25 @@ const NavBar = () => {
           size="small"
           placeholder="Search..."
           sx={{
-            pr: 3, // Padding na prawo
+            pr: 3,
             "& .MuiOutlinedInput-root": {
-              backgroundColor: "#fab1a0", // Kolor tła
-              color: "#fff", // Kolor tekstu
+              backgroundColor: "#F6E2D3", // Kolor tła
+              color: "#000", // Kolor tekstu
               "& fieldset": {
-                borderColor: "#fff", // Kolor obwódki
+                borderColor: "#A9746E", // Kolor obwódki
               },
               "&:hover fieldset": {
-                borderColor: "#ff7675", // Kolor obwódki podczas najechania
+                borderColor: "#9C7CA5", // Kolor obwódki podczas najechania
               },
               "&.Mui-focused fieldset": {
-                borderColor: "#ff7675", // Kolor obwódki po kliknięciu
+                borderColor: "#9C7CA5", // Kolor obwódki po kliknięciu
               },
             },
           }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ color: "#fff" }} /> {/* Kolor ikony */}
+                <SearchIcon sx={{ color: "#A9746E" }} />
               </InputAdornment>
             ),
           }}
