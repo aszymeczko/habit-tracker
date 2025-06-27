@@ -1,3 +1,44 @@
 {
-  "habits": []
+  "habits": [
+    {
+      "id": "16a4",
+      "name": "Trening",
+      "goal": 5,
+      "progress": 1,
+      "lastCompletedDate": "2025-06-27",
+      "isCompletedToday": false
+    },
+    {
+      "id": "9ff2",
+      "name": "Picie 2l wody",
+      "goal": 7,
+      "progress": 1,
+      "lastCompletedDate": "2025-06-27",
+      "isCompletedToday": false
+    },
+    {
+      "id": "2bde",
+      "name": "Spanko 22:00",
+      "goal": 30,
+      "progress": 1,
+      "lastCompletedDate": "2025-06-27",
+      "isCompletedToday": false
+    },
+    {
+      "id": "e16a",
+      "name": "Suplementy",
+      "goal": 15,
+      "progress": 1,
+      "lastCompletedDate": "2025-06-27",
+      "isCompletedToday": false
+    },
+    {
+      "id": "f50b",
+      "name": "Nauka 5h",
+      "goal": 5,
+      "progress": 1,
+      "lastCompletedDate": "2025-06-27",
+      "isCompletedToday": false
+    }
+  ]
 }

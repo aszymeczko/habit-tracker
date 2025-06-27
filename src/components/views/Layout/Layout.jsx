@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 const drawerWidth = 240;
 const appBarHeight = 80;
