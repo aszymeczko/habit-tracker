@@ -23,10 +23,10 @@ const NavBar = () => {
             className="material-symbols-outlined"
             sx={{
               fontSize: 45,
-              color: "#A9746E", // Domyślny kolor
+              color: "#A2D2FF", // Domyślny kolor
               transition: "color 0.2s",
               "&:hover": {
-                color: "#9C7CA5", // Kolor ikony po najechaniu
+                color: "#C8B6FF", // Kolor ikony po najechaniu
               },
             }}
           >
@@ -55,23 +55,30 @@ const NavBar = () => {
           sx={{
             pr: 3,
             "& .MuiOutlinedInput-root": {
-              backgroundColor: "#F6E2D3", // Kolor tła
+              backgroundColor: "#FAE7EB", // Kolor tła
               color: "#000", // Kolor tekstu
               "& fieldset": {
-                borderColor: "#A9746E", // Kolor obwódki
+                borderColor: "#A2D2FF",
+                borderWidth: 1.5, // Kolor obwódki
               },
               "&:hover fieldset": {
-                borderColor: "#9C7CA5", // Kolor obwódki podczas najechania
+                borderColor: "#C8B6FF", // Kolor obwódki podczas najechania
               },
               "&.Mui-focused fieldset": {
-                borderColor: "#9C7CA5", // Kolor obwódki po kliknięciu
+                borderColor: "#C8B6FF", // Kolor obwódki po kliknięciu
+              },
+              "&.Mui-focused .MuiSvgIcon-root": {
+                color: "#C8B6FF", // kolor ikony po kliknięciu
+              },
+              "&:hover .MuiSvgIcon-root": {
+                color: "#C8B6FF",
               },
             },
           }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ color: "#A9746E" }} />
+                <SearchIcon sx={{ color: "#A2D2FF" }} />
               </InputAdornment>
             ),
           }}

@@ -12,7 +12,8 @@ const SideBar = () => {
           width: drawerWidth,
           boxSizing: "border-box",
           marginTop: "80px",
-          backgroundColor: "#A9746E",
+          backgroundColor: "#A2D2FF",
+          // backgroundColor: "#A9746E",
         },
       }}
     >

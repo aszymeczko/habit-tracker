@@ -94,20 +94,15 @@ const habitSlice = createSlice({
       })
       // Aktualizacja nawyku
       .addCase(updateHabitProgress.fulfilled, (state, action) => {
-        const today = new Date().toISOString().split("T")[0];
-
         const index = state.data.findIndex(
           (habit) => habit.id === action.payload.id,
         );
         if (index !== -1) {
-          const newProgress = action.payload.progress;
-
           state.data[index] = {
             ...state.data[index],
-            progress: newProgress,
-            isCompletedToday:
-              newProgress > 0 && action.payload.lastCompletedDate === today, // Aktualizacja koloru
-            lastCompletedDate: action.payload.lastCompletedDate, // Ustaw dzisiejszą datę
+            progress: action.payload.progress,
+            isCompletedToday: action.payload.isCompletedToday,
+            lastCompletedDate: action.payload.lastCompletedDate,
           };
         }
       });

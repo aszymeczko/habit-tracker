@@ -101,8 +101,7 @@ const AddHabitModal = ({ open, onClose }) => {
             sx={{
               transition: "0.2s",
               "&:hover": {
-                backgroundColor: "#9C7CA5",
-                color: "#F6E2D3", // Kolor ikony po najechaniu
+                backgroundColor: "#DBF3FF",
               },
             }}
           >
@@ -112,10 +111,10 @@ const AddHabitModal = ({ open, onClose }) => {
             variant="outlined"
             onClick={onClose}
             sx={{
-              color: "#9C7CA5",
-              borderColor: "#9C7CA5",
+              color: "#576574",
+              borderColor: "#576574",
               transition: "0.2s",
-              "&:hover": { backgroundColor: "#e0e0e0", color: "" }, // Kolor ikony po najechaniu
+              "&:hover": { backgroundColor: "#DBF3FF" }, // Kolor ikony po najechaniu
             }}
           >
             Anuluj

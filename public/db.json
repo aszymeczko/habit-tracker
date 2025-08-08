@@ -4,41 +4,41 @@
       "id": "16a4",
       "name": "Trening",
       "goal": 5,
-      "progress": 1,
-      "lastCompletedDate": "2025-06-27",
+      "progress": 5,
+      "lastCompletedDate": "2025-06-30",
       "isCompletedToday": false
     },
     {
       "id": "9ff2",
       "name": "Picie 2l wody",
       "goal": 7,
-      "progress": 1,
-      "lastCompletedDate": "2025-06-27",
-      "isCompletedToday": false
+      "progress": 4,
+      "lastCompletedDate": "2025-08-08",
+      "isCompletedToday": true
     },
     {
       "id": "2bde",
       "name": "Spanko 22:00",
       "goal": 30,
-      "progress": 1,
-      "lastCompletedDate": "2025-06-27",
-      "isCompletedToday": false
+      "progress": 18,
+      "lastCompletedDate": "2025-08-08",
+      "isCompletedToday": true
     },
     {
       "id": "e16a",
       "name": "Suplementy",
       "goal": 15,
       "progress": 1,
-      "lastCompletedDate": "2025-06-27",
-      "isCompletedToday": false
+      "lastCompletedDate": "2025-08-08",
+      "isCompletedToday": true
     },
     {
       "id": "f50b",
       "name": "Nauka 5h",
       "goal": 5,
-      "progress": 1,
-      "lastCompletedDate": "2025-06-27",
-      "isCompletedToday": false
+      "progress": 4,
+      "lastCompletedDate": "2025-08-08",
+      "isCompletedToday": true
     }
   ]
 }

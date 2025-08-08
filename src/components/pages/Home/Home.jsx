@@ -27,7 +27,19 @@ const Home = () => {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
-  const handleCardClick = (habitId, currentProgress, goal) => {
+  const handleCardClick = (
+    habitId,
+    isCompletedToday,
+    currentProgress,
+    goal,
+  ) => {
+    const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data
+
+    if (isCompletedToday) {
+      alert("Ten nawyk został już dzisiaj wykonany!");
+      return; // Zatrzymujemy, jeśli nawyk został już wykonany dzisiaj
+    }
+
     if (currentProgress >= goal) {
       alert("Gratulacje! Cel już osiągnięty 🎉");
       return; // Nie pozwalaj na zwiększenie ponad cel
@@ -37,20 +49,32 @@ const Home = () => {
       updateHabitProgress({
         id: habitId,
         progress: currentProgress + 1,
+        isCompletedToday: true,
+        lastCompletedDate: today,
       }),
     );
   };
 
-  const handleUndoClick = (habitId, currentProgress) => {
-    if (currentProgress > 0) {
-      const newProgress = currentProgress - 1; // Zmniejszamy postęp
-      const isCompletedToday = newProgress > 0;
+  const handleUndoClick = (
+    habitId,
+    currentProgress,
+    isCompletedToday,
+    lastCompletedDate,
+  ) => {
+    const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data w formacie ISO
 
+    if (!isCompletedToday || lastCompletedDate !== today) {
+      alert("Możesz cofnąć tylko dzisiejsze wykonanie nawyku!");
+      return; // Zatrzymujemy, jeśli dzisiejszy dzień nie jest oznaczony
+    }
+
+    if (currentProgress > 0) {
       dispatch(
         updateHabitProgress({
           id: habitId,
-          progress: newProgress,
-          isCompletedToday,
+          progress: currentProgress - 1,
+          isCompletedToday: false,
+          lastCompletedDate: null,
         }),
       );
     } else {
@@ -94,8 +118,7 @@ const Home = () => {
             p: "12px 30px",
             transition: "0.2s",
             "&:hover": {
-              backgroundColor: "#9C7CA5",
-              color: "#F6E2D3", // Kolor ikony po najechaniu
+              backgroundColor: "#A2D2FF",
             },
           }}
         >
@@ -119,14 +142,20 @@ const Home = () => {
         }}
       >
         {habits.map((habit) => {
-          const isCompletedToday = habit.isCompletedToday; // Flaga dla koloru na dziś
+          const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data
+          const isGoalReached = habit.progress >= habit.goal; // Czy osiągnięto cel?
 
           return (
             <Paper
               key={habit.id}
               elevation={3}
               onClick={() =>
-                handleCardClick(habit.id, habit.progress, habit.goal)
+                handleCardClick(
+                  habit.id,
+                  habit.isCompletedToday,
+                  habit.progress,
+                  habit.goal,
+                )
               }
               sx={{
                 position: "relative",
@@ -137,11 +166,19 @@ const Home = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                backgroundColor: isCompletedToday ? "#9C7CA5" : "#f0f0f0",
+                backgroundColor: isGoalReached
+                  ? "#E4CCF1"
+                  : habit.isCompletedToday
+                    ? "#DBF3FF"
+                    : "#f0f0f0",
                 gap: 1,
                 cursor: "pointer",
                 "&:hover": {
-                  backgroundColor: isCompletedToday ? "#835a91" : "#e0e0e0",
+                  backgroundColor: isGoalReached
+                    ? "#C8B6FF"
+                    : habit.isCompletedToday
+                      ? "#BDE0FE"
+                      : "#D2DCE4",
                 },
               }}
             >
@@ -155,7 +192,7 @@ const Home = () => {
                   position: "absolute",
                   top: 8,
                   right: 8,
-                  color: habit.isCompletedToday ? "#F6E2D3" : "#A9746E",
+                  color: "#000",
                 }}
               >
                 <CloseIcon /> {/* Ikona zamknięcia */}
@@ -180,23 +217,15 @@ const Home = () => {
                 sx={{
                   width: "100%",
                   mt: 1,
-                  // backgroundColor: "#F6E2D3",
                   borderRadius: " 16px",
                   height: "10px",
                   // Dynamiczny kolor wypełnienia
                   "& .MuiLinearProgress-bar": {
-                    // backgroundColor: "#F6E2D3",
-                    backgroundColor: habit.isCompletedToday
-                      ? "#F6E2D3"
-                      : "#A9746E",
+                    backgroundColor: "#C8B6FF",
                   },
                   // Dynamiczne tło lub ramka
-                  backgroundColor: habit.isCompletedToday
-                    ? "#9C7CA5"
-                    : "#e0e0e0",
-                  border: habit.isCompletedToday
-                    ? "2px solid #835a91"
-                    : "2px solid transparent",
+                  backgroundColor: "#e0e0e0",
+                  border: "1px solid #000",
                   transition: "0.3s", // Płynna zmiana koloru
                 }}
               />
@@ -212,12 +241,17 @@ const Home = () => {
               <Button
                 onClick={(e) => {
                   e.stopPropagation(); // Zapobiega propagacji kliknięcia na główną kartę
-                  handleUndoClick(habit.id, habit.progress, habit.goal);
+                  handleUndoClick(
+                    habit.id,
+                    habit.progress,
+                    habit.isCompletedToday,
+                    habit.lastCompletedDate,
+                  );
                 }}
                 sx={{
                   backgroundColor: "#f0f0f0",
-                  // color: "#A9746E",
-                  color: habit.isCompletedToday ? "#9C7CA5" : "#A9746E",
+                  border: "1px solid #576574",
+                  color: "#000",
                   mt: 1,
                   "&:hover": {
                     backgroundColor: "#e0e0e0",

@@ -17,7 +17,7 @@ const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#F6E2D3",
+      main: "#FAE7EB",
     },
   },
   components: {
@@ -27,10 +27,10 @@ const theme = createTheme({
           transition: "0.2s", // Płynna animacja
           "& .MuiOutlinedInput-root": {
             "&:hover fieldset": {
-              borderColor: "#9C7CA5", // Zmiana koloru ramki na hover
+              borderColor: "#C8B6FF", // Zmiana koloru ramki na hover
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#9C7CA5", // Kolor ramki po focuse
+              borderColor: "#C8B6FF", // Kolor ramki po focuse
             },
           },
           "& label": {
@@ -38,7 +38,7 @@ const theme = createTheme({
             transition: "0.2s",
           },
           "& label.Mui-focused": {
-            color: "#9C7CA5", // Kolor etykiety na focus
+            color: "#C8B6FF", // Kolor etykiety na focus
           },
         },
       },
