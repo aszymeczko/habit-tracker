@@ -94,7 +94,6 @@ const Home = () => {
 
   return (
     <>
-      <SideBar />
       <Box
         sx={{
           color: "#576574",

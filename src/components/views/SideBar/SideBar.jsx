@@ -1,8 +1,23 @@
-import { Drawer } from "@mui/material";
+import { Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
 const SideBar = () => {
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+
+  const listItemBaseStyle = {
+    textAlign: "center",
+    borderRadius: "50px",
+    fontWeight: "bold",
+  };
+
+  const typographyBaseStyle = {
+    fontSize: { xs: "18px", md: "25px" },
+    color: "#000",
+  };
+
   return (
     <Drawer
       variant="permanent"
@@ -13,11 +28,49 @@ const SideBar = () => {
           boxSizing: "border-box",
           marginTop: "80px",
           backgroundColor: "#A2D2FF",
-          // backgroundColor: "#A9746E",
         },
       }}
     >
-      Side Bar
+      <List sx={{ margin: "10px 20px" }}>
+        <ListItem
+          component={Link}
+          to="/"
+          sx={{
+            ...listItemBaseStyle,
+            backgroundColor: isActive("/") ? "#C8B6FF" : "",
+            transition: "background-color 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#D5CFFF",
+            },
+          }}
+        >
+          <ListItemText
+            primary="Home"
+            sx={{
+              "& .MuiTypography-root": { ...typographyBaseStyle },
+            }}
+          />
+        </ListItem>
+        <ListItem
+          component={Link}
+          to="/calendar"
+          sx={{
+            ...listItemBaseStyle,
+            backgroundColor: isActive("/calendar") ? "#C8B6FF" : "",
+            transition: "background-color 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#D5CFFF",
+            },
+          }}
+        >
+          <ListItemText
+            primary="Calendar"
+            sx={{
+              "& .MuiTypography-root": { ...typographyBaseStyle },
+            }}
+          />
+        </ListItem>
+      </List>
     </Drawer>
   );
 };
