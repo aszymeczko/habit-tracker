@@ -5,8 +5,13 @@ import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery } from "../../../features/habits/habitsSlice.jsx";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const searchQuery = useSelector((state) => state.habit.searchQuery);
+
   return (
     <AppBar
       position="fixed"
@@ -49,6 +54,8 @@ const NavBar = () => {
         </Typography>
 
         <TextField
+          value={searchQuery}
+          onChange={(e) => dispatch(setSearchQuery(e.target.value))}
           variant="outlined"
           size="small"
           placeholder="Search..."

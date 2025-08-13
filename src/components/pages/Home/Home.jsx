@@ -7,23 +7,24 @@ import {
   fetchHabits,
   deleteHabit,
   updateHabitProgress,
-  createHabit,
 } from "../../../features/habits/habitsSlice.jsx";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Home = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+
   const habits = useSelector((state) => state.habit.data);
   const loading = useSelector((state) => state.habit.loading);
   const error = useSelector((state) => state.habit.error);
+  const searchQuery = useSelector((state) => state.habit.searchQuery); // pobieramy tekst wyszukiwania z Redux
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchHabits()); // Pobierz nawyki po zamontowaniu komponentu
+    dispatch(fetchHabits());
   }, [dispatch]);
 
-  // Obsługa otwierania/zamykania modala
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
@@ -33,16 +34,16 @@ const Home = () => {
     currentProgress,
     goal,
   ) => {
-    const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data
+    const today = new Date().toISOString().split("T")[0];
 
     if (isCompletedToday) {
       alert("Ten nawyk został już dzisiaj wykonany!");
-      return; // Zatrzymujemy, jeśli nawyk został już wykonany dzisiaj
+      return;
     }
 
     if (currentProgress >= goal) {
       alert("Gratulacje! Cel już osiągnięty 🎉");
-      return; // Nie pozwalaj na zwiększenie ponad cel
+      return;
     }
 
     dispatch(
@@ -61,11 +62,11 @@ const Home = () => {
     isCompletedToday,
     lastCompletedDate,
   ) => {
-    const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data w formacie ISO
+    const today = new Date().toISOString().split("T")[0];
 
     if (!isCompletedToday || lastCompletedDate !== today) {
       alert("Możesz cofnąć tylko dzisiejsze wykonanie nawyku!");
-      return; // Zatrzymujemy, jeśli dzisiejszy dzień nie jest oznaczony
+      return;
     }
 
     if (currentProgress > 0) {
@@ -85,6 +86,11 @@ const Home = () => {
   const handleDeleteHabit = (habitId) => {
     dispatch(deleteHabit(habitId));
   };
+
+  // filtrowanie listy nawyków
+  const filteredHabits = habits.filter((habit) =>
+    habit.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   return (
     <>
@@ -125,14 +131,12 @@ const Home = () => {
           Add Habit
         </Button>
       </Box>
-      {/*Modal*/}
+
       <AddHabitModal open={isModalOpen} onClose={handleCloseModal} />
 
-      {/* Obsługa błędów i ładowania */}
       {loading && <Typography>Ładowanie danych...</Typography>}
       {error && <Typography color="error">Błąd: {error}</Typography>}
 
-      {/* Habit list */}
       <Box
         sx={{
           display: "flex",
@@ -141,9 +145,9 @@ const Home = () => {
           mt: 4,
         }}
       >
-        {habits.map((habit) => {
-          const today = new Date().toISOString().split("T")[0]; // Dzisiejsza data
-          const isGoalReached = habit.progress >= habit.goal; // Czy osiągnięto cel?
+        {filteredHabits.map((habit) => {
+          const today = new Date().toISOString().split("T")[0];
+          const isGoalReached = habit.progress >= habit.goal;
 
           return (
             <Paper
@@ -182,7 +186,6 @@ const Home = () => {
                 },
               }}
             >
-              {/* Przycisk usuwania */}
               <IconButton
                 onClick={(e) => {
                   e.stopPropagation();
@@ -195,9 +198,9 @@ const Home = () => {
                   color: "#000",
                 }}
               >
-                <CloseIcon /> {/* Ikona zamknięcia */}
+                <CloseIcon />
               </IconButton>
-              {/* Tytuł nawyku */}
+
               <Typography
                 variant="h4"
                 sx={{
@@ -210,7 +213,7 @@ const Home = () => {
               >
                 {habit.name}
               </Typography>
-              {/* Progress bar */}
+
               <LinearProgress
                 variant="determinate"
                 value={(habit.progress / habit.goal) * 100}
@@ -219,16 +222,15 @@ const Home = () => {
                   mt: 1,
                   borderRadius: " 16px",
                   height: "10px",
-                  // Dynamiczny kolor wypełnienia
                   "& .MuiLinearProgress-bar": {
                     backgroundColor: "#C8B6FF",
                   },
-                  // Dynamiczne tło lub ramka
                   backgroundColor: "#e0e0e0",
                   border: "1px solid #000",
-                  transition: "0.3s", // Płynna zmiana koloru
+                  transition: "0.3s",
                 }}
               />
+
               <Box sx={{ mb: "5px", width: "100%" }}>
                 <Typography
                   variant="body1"
@@ -237,10 +239,10 @@ const Home = () => {
                   Progress: {habit.progress}/{habit.goal} days
                 </Typography>
               </Box>
-              {/* Przycisk Undo */}
+
               <Button
                 onClick={(e) => {
-                  e.stopPropagation(); // Zapobiega propagacji kliknięcia na główną kartę
+                  e.stopPropagation();
                   handleUndoClick(
                     habit.id,
                     habit.progress,

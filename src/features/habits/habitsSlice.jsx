@@ -63,7 +63,11 @@ const habitSlice = createSlice({
         habit.isCompletedToday = false;
       });
     },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload; // zapisujemy tekst wyszukiwania
+    },
   },
+
   extraReducers: (builder) => {
     builder
       // Pobieranie nawyków
@@ -109,6 +113,6 @@ const habitSlice = createSlice({
   },
 });
 
-export const { resetColor } = habitSlice.actions;
+export const { resetColor, setSearchQuery } = habitSlice.actions;
 
 export default habitSlice.reducer;
