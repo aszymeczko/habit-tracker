@@ -11,6 +11,7 @@ const SideBar = () => {
     textAlign: "center",
     borderRadius: "50px",
     fontWeight: "bold",
+    marginBottom: "10px",
   };
 
   const typographyBaseStyle = {
