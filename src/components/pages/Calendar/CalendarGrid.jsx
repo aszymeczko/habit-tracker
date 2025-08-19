@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 
 const CalendarGrid = ({ days }) => {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  console.log("days", days);
   return (
     <Box sx={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
       {weekDays.map((day) => (

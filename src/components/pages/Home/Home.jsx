@@ -7,7 +7,7 @@ import {
   fetchHabits,
   deleteHabit,
   updateHabitProgress,
-} from "../../../features/habits/habitsSlice.jsx";
+} from "../../../features/habitsSlice.jsx";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 

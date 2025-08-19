@@ -15,7 +15,7 @@ const SideBar = () => {
   };
 
   const typographyBaseStyle = {
-    fontSize: { xs: "18px", md: "25px" },
+    fontSize: { xs: "18px", md: "20px" },
     color: "#000",
   };
 
@@ -54,6 +54,25 @@ const SideBar = () => {
         </ListItem>
         <ListItem
           component={Link}
+          to="/habits"
+          sx={{
+            ...listItemBaseStyle,
+            backgroundColor: isActive("/habits") ? "#C8B6FF" : "",
+            transition: "background-color 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#D5CFFF",
+            },
+          }}
+        >
+          <ListItemText
+            primary="Habits"
+            sx={{
+              "& .MuiTypography-root": { ...typographyBaseStyle },
+            }}
+          />
+        </ListItem>
+        <ListItem
+          component={Link}
           to="/calendar"
           sx={{
             ...listItemBaseStyle,
@@ -66,6 +85,25 @@ const SideBar = () => {
         >
           <ListItemText
             primary="Calendar"
+            sx={{
+              "& .MuiTypography-root": { ...typographyBaseStyle },
+            }}
+          />
+        </ListItem>
+        <ListItem
+          component={Link}
+          to="/statistics"
+          sx={{
+            ...listItemBaseStyle,
+            backgroundColor: isActive("/statistics") ? "#C8B6FF" : "",
+            transition: "background-color 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#D5CFFF",
+            },
+          }}
+        >
+          <ListItemText
+            primary="Statistics"
             sx={{
               "& .MuiTypography-root": { ...typographyBaseStyle },
             }}

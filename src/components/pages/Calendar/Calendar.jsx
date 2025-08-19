@@ -22,8 +22,10 @@ const Calendar = () => {
     }
   };
 
-  const [currentYear, setCurrentYear] = useState(2025);
-  const [currentMonth, setCurrentMonth] = useState(7);
+  const currentDate = new Date(); // Pobranie aktualnej daty
+
+  const [currentYear, setCurrentYear] = useState(currentDate.getFullYear()); // Bieżący rok
+  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth()); // Bieżący miesiąc
 
   const days = getMonthDays(currentYear, currentMonth);
 

@@ -6,7 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchQuery } from "../../../features/habits/habitsSlice.jsx";
+import { setSearchQuery } from "../../../features/habitsSlice.jsx";
 
 const NavBar = () => {
   const dispatch = useDispatch();

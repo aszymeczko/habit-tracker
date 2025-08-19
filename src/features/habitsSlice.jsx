@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import initialState from "../../redux/initialState.jsx";
+import initialState from "../redux/initialState.jsx";
 
 // URL API
 const API_URL = "http://localhost:5001/habits";

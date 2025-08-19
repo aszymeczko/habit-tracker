@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { createHabit } from "../../../features/habits/habitsSlice.jsx";
+import { createHabit } from "../../../features/habitsSlice.jsx";
 
 const AddHabitModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
