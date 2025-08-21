@@ -12,9 +12,10 @@ export function getMonthDays(year, month) {
     days.push({ day: null, isCurrentMonth: false });
   }
 
-  // Dodaj dni miesiąca
+  // Dodaj dni miesiąca z pełną datą w formacie YYYY-MM-DD
   for (let day = 1; day <= lastDate; day++) {
-    days.push({ day, isCurrentMonth: true });
+    const date = new Date(year, month, day).toISOString().split("T")[0]; // Generowanie daty w formacie YYYY-MM-DD
+    days.push({ day, isCurrentMonth: true, date });
   }
 
   return days;

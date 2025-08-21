@@ -23,8 +23,12 @@ const CalendarGrid = ({ days, highlightedDays }) => {
           key={index}
           sx={{
             p: 2,
-            bgcolor: day.isCurrentMonth ? "primary.light" : "grey.300",
-            color: day.highlightedDays ? "#C8B6FF" : "#000",
+            bgcolor: day.isCurrentMonth
+              ? highlightedDays.includes(day.date)
+                ? "#C8B6FF"
+                : "primary.light"
+              : "grey.300",
+            // color: day.highlightedDays ? "#C8B6FF" : "#000",
             textAlign: "center",
           }}
         >
