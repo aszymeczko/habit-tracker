@@ -13,10 +13,7 @@ import { createHabit } from "../../../features/habitsSlice.jsx";
 const AddHabitModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
-  const [goal, setGoal] = useState(""); // Domyślny cel: 30 dni
-
-  // const [frequency, setFrequency] = useState("daily"); // Codziennie
-  // const [progress, setProgress] = useState(0); // Start bez postępu
+  const [goal, setGoal] = useState("");
 
   const handleSubmit = () => {
     if (name && goal > 0) {
@@ -25,7 +22,9 @@ const AddHabitModal = ({ open, onClose }) => {
           name,
           goal,
           progress: 0,
-          lastCompletedDate: null, // lub pomiń to całkowicie
+          lastCompletedDate: null,
+          isCompletedToday: false,
+          completedDates: [],
         }),
       );
       setName("");
@@ -73,19 +72,6 @@ const AddHabitModal = ({ open, onClose }) => {
           onChange={(e) => setName(e.target.value)}
           fullWidth
         />
-
-        {/*<TextField*/}
-        {/*  select*/}
-        {/*  label="Frequency"*/}
-        {/*  value={frequency}*/}
-        {/*  onChange={(e) => setFrequency(e.target.value)}*/}
-        {/*  fullWidth*/}
-        {/*>*/}
-        {/*  <MenuItem value="daily">Daily</MenuItem>*/}
-        {/*  <MenuItem value="every_other_day">Every Other Day</MenuItem>*/}
-        {/*  <MenuItem value="twice-a-week">Twice a week</MenuItem>*/}
-        {/*  <MenuItem value="weekly">Weekly</MenuItem>*/}
-        {/*</TextField>*/}
 
         <TextField
           label="Goal (days)"

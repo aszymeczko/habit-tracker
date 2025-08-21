@@ -3,7 +3,7 @@ import CalendarGrid from "./CalendarGrid.jsx";
 import { getMonthDays } from "../../../utils/utils.jsx";
 import { useState } from "react";
 
-const Calendar = () => {
+const Calendar = ({ highlightedDays }) => {
   const goToNextMonth = () => {
     if (currentMonth === 11) {
       setCurrentMonth(0);
@@ -37,7 +37,7 @@ const Calendar = () => {
         onNext={goToNextMonth}
         onPrevious={goToPreviousMonth}
       />
-      <CalendarGrid days={days} />
+      <CalendarGrid days={days} highlightedDays={highlightedDays} />
     </div>
   );
 };

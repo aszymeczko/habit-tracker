@@ -36,8 +36,12 @@ export const deleteHabit = createAsyncThunk("habit/deleteHabit", async (id) => {
 // Aktualizacja postępu nawyku
 export const updateHabitProgress = createAsyncThunk(
   "habit/updateHabitProgress",
-  async ({ id, progress, isCompletedToday }) => {
+  async ({ id, progress, isCompletedToday, completedDates }) => {
     const today = new Date().toISOString().split("T")[0];
+
+    const updatedDates = isCompletedToday
+      ? [...(completedDates || []), today]
+      : completedDates.filter((date) => date !== today);
 
     const response = await fetch(`${API_URL}/${id}`, {
       method: "PATCH",
@@ -45,7 +49,8 @@ export const updateHabitProgress = createAsyncThunk(
       body: JSON.stringify({
         progress,
         lastCompletedDate: progress > 0 ? today : null, // Jeśli progress > 0, aktualizujemy datę
-        isCompletedToday, // Przekazanie flagi
+        isCompletedToday,
+        completedDates: updatedDates,
       }),
     });
 
@@ -82,6 +87,7 @@ const habitSlice = createSlice({
         state.data = action.payload.map((habit) => ({
           ...habit,
           isCompletedToday: habit.lastCompletedDate === today,
+          completedDates: habit.completedDates || [],
         }));
       })
       .addCase(fetchHabits.rejected, (state, action) => {
@@ -107,6 +113,7 @@ const habitSlice = createSlice({
             progress: action.payload.progress,
             isCompletedToday: action.payload.isCompletedToday,
             lastCompletedDate: action.payload.lastCompletedDate,
+            completedDates: action.payload.completedDates,
           };
         }
       });

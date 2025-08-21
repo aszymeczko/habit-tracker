@@ -33,6 +33,7 @@ const Home = () => {
     isCompletedToday,
     currentProgress,
     goal,
+    completedDates,
   ) => {
     const today = new Date().toISOString().split("T")[0];
 
@@ -52,6 +53,7 @@ const Home = () => {
         progress: currentProgress + 1,
         isCompletedToday: true,
         lastCompletedDate: today,
+        completedDates: [...(completedDates || []), today],
       }),
     );
   };
@@ -61,6 +63,7 @@ const Home = () => {
     currentProgress,
     isCompletedToday,
     lastCompletedDate,
+    completedDates,
   ) => {
     const today = new Date().toISOString().split("T")[0];
 
@@ -76,6 +79,7 @@ const Home = () => {
           progress: currentProgress - 1,
           isCompletedToday: false,
           lastCompletedDate: null,
+          completedDates: completedDates.filter((date) => date !== today),
         }),
       );
     } else {
@@ -158,6 +162,7 @@ const Home = () => {
                   habit.isCompletedToday,
                   habit.progress,
                   habit.goal,
+                  habit.completedDates,
                 )
               }
               sx={{
@@ -247,6 +252,7 @@ const Home = () => {
                     habit.progress,
                     habit.isCompletedToday,
                     habit.lastCompletedDate,
+                    habit.completedDates,
                   );
                 }}
                 sx={{

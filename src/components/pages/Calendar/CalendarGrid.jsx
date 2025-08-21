@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 
-const CalendarGrid = ({ days }) => {
+const CalendarGrid = ({ days, highlightedDays }) => {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  console.log("days", days);
+
   return (
     <Box sx={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
       {weekDays.map((day) => (
@@ -24,6 +24,7 @@ const CalendarGrid = ({ days }) => {
           sx={{
             p: 2,
             bgcolor: day.isCurrentMonth ? "primary.light" : "grey.300",
+            color: day.highlightedDays ? "#C8B6FF" : "#000",
             textAlign: "center",
           }}
         >

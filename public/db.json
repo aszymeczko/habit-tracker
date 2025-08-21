@@ -6,7 +6,12 @@
       "goal": 5,
       "progress": 5,
       "lastCompletedDate": "2025-06-30",
-      "isCompletedToday": false
+      "isCompletedToday": false,
+      "completedDates": [
+        "2025-08-13",
+        "2025-08-12",
+        "2025-08-11"
+      ]
     },
     {
       "id": "9ff2",
@@ -14,7 +19,12 @@
       "goal": 7,
       "progress": 7,
       "lastCompletedDate": "2025-08-14",
-      "isCompletedToday": true
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-10",
+        "2025-08-12",
+        "2025-08-17"
+      ]
     },
     {
       "id": "2bde",
@@ -22,7 +32,10 @@
       "goal": 30,
       "progress": 22,
       "lastCompletedDate": "2025-08-19",
-      "isCompletedToday": true
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-19"
+      ]
     },
     {
       "id": "e16a",
@@ -30,7 +43,10 @@
       "goal": 15,
       "progress": 5,
       "lastCompletedDate": "2025-08-19",
-      "isCompletedToday": true
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-19"
+      ]
     },
     {
       "id": "f50b",
@@ -38,7 +54,13 @@
       "goal": 5,
       "progress": 5,
       "lastCompletedDate": "2025-08-13",
-      "isCompletedToday": true
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-01",
+        "2025-08-13",
+        "2025-08-14",
+        "2025-08-15"
+      ]
     }
   ]
 }
