@@ -37,15 +37,21 @@ const Home = () => {
   ) => {
     const today = new Date().toISOString().split("T")[0];
 
+    // Sprawdź, czy jest już wykonane na dziś
     if (isCompletedToday) {
       alert("Ten nawyk został już dzisiaj wykonany!");
       return;
     }
 
+    // Sprawdź, czy osiągnięto maksimum
     if (currentProgress >= goal) {
       alert("Gratulacje! Cel już osiągnięty 🎉");
       return;
     }
+    // Dodaj dzisiejszą datę, jeśli jeszcze jej nie ma w completedDates
+    const updatedCompletedDates = [
+      ...new Set([...(completedDates || []), today]),
+    ];
 
     dispatch(
       updateHabitProgress({
@@ -53,7 +59,7 @@ const Home = () => {
         progress: currentProgress + 1,
         isCompletedToday: true,
         lastCompletedDate: today,
-        completedDates: [...(completedDates || []), today],
+        completedDates: updatedCompletedDates,
       }),
     );
   };
@@ -67,7 +73,12 @@ const Home = () => {
   ) => {
     const today = new Date().toISOString().split("T")[0];
 
-    if (!isCompletedToday || lastCompletedDate !== today) {
+    // Cofanie możliwe, tylko jeśli wykonanie dotyczy dzisiejszego dnia
+    if (
+      !isCompletedToday ||
+      lastCompletedDate !== today ||
+      !completedDates.includes(today)
+    ) {
       alert("Możesz cofnąć tylko dzisiejsze wykonanie nawyku!");
       return;
     }
@@ -78,7 +89,7 @@ const Home = () => {
           id: habitId,
           progress: currentProgress - 1,
           isCompletedToday: false,
-          lastCompletedDate: null,
+          lastCompletedDate: currentProgress - 1 > 0 ? lastCompletedDate : null,
           completedDates: completedDates.filter((date) => date !== today),
         }),
       );

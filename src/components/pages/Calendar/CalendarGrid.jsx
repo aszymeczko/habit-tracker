@@ -28,7 +28,6 @@ const CalendarGrid = ({ days, highlightedDays }) => {
                 ? "#C8B6FF"
                 : "primary.light"
               : "grey.300",
-            // color: day.highlightedDays ? "#C8B6FF" : "#000",
             textAlign: "center",
           }}
         >

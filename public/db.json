@@ -1,70 +1,66 @@
 {
   "habits": [
     {
-      "id": "16a4",
+      "id": "9bf5",
       "name": "Trening",
-      "goal": 5,
-      "progress": 5,
-      "lastCompletedDate": "2025-06-30",
-      "isCompletedToday": false,
-      "completedDates": [
-        "2025-08-13",
-        "2025-08-12",
-        "2025-08-11"
-      ]
-    },
-    {
-      "id": "9ff2",
-      "name": "Picie 2l wody",
       "goal": 7,
-      "progress": 7,
-      "lastCompletedDate": "2025-08-14",
+      "progress": 1,
+      "lastCompletedDate": "2025-08-25",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-10",
-        "2025-08-12",
-        "2025-08-17"
+        "2025-08-25"
       ]
     },
     {
-      "id": "2bde",
-      "name": "Spanko 22:00",
-      "goal": 30,
-      "progress": 23,
-      "lastCompletedDate": "2025-08-21",
+      "id": "c134",
+      "name": "Picie 2L wody",
+      "goal": 7,
+      "progress": 1,
+      "lastCompletedDate": "2025-08-25",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-19",
-        "2025-08-21",
-        "2025-08-21"
+        "2025-08-25"
       ]
     },
     {
-      "id": "e16a",
-      "name": "Suplementy",
-      "goal": 15,
-      "progress": 6,
-      "lastCompletedDate": "2025-08-21",
-      "isCompletedToday": true,
-      "completedDates": [
-        "2025-08-19",
-        "2025-08-21",
-        "2025-08-21"
-      ]
-    },
-    {
-      "id": "f50b",
+      "id": "d962",
       "name": "Nauka 5h",
-      "goal": 5,
-      "progress": 5,
-      "lastCompletedDate": "2025-08-13",
+      "goal": 7,
+      "progress": 1,
+      "lastCompletedDate": "2025-08-25",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-01",
-        "2025-08-13",
-        "2025-08-14",
-        "2025-08-15"
+        "2025-08-25"
       ]
+    },
+    {
+      "id": "1b39",
+      "name": "Spanko 22:00",
+      "goal": 7,
+      "progress": 1,
+      "lastCompletedDate": "2025-08-25",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-25"
+      ]
+    },
+    {
+      "id": "8808",
+      "name": "Kolagen",
+      "goal": 7,
+      "progress": 0,
+      "lastCompletedDate": null,
+      "isCompletedToday": false,
+      "completedDates": []
+    },
+    {
+      "id": "abdb",
+      "name": "Tejpy",
+      "goal": 7,
+      "progress": 0,
+      "lastCompletedDate": null,
+      "isCompletedToday": false,
+      "completedDates": []
     }
   ]
 }

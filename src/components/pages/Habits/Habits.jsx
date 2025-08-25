@@ -6,13 +6,11 @@ import { fetchHabits } from "../../../features/habitsSlice.jsx";
 
 const Habits = () => {
   const dispatch = useDispatch();
-  // const habits = useSelector((state) => state.habit.data); // Dane z Redux
   const { data: habits, loading, error } = useSelector((state) => state.habit);
 
   const [selectedHabit, setSelectedHabit] = useState(null); // Wybrany nawyk
 
   const completedDays = selectedHabit?.completedDates || [];
-  console.log("Updated completedDays:", completedDays);
 
   // Pobierz dane podczas ładowania komponentu
   useEffect(() => {

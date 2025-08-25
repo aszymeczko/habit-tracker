@@ -12,6 +12,7 @@ const Calendar = ({ highlightedDays }) => {
       setCurrentMonth(currentMonth + 1);
     }
   };
+  console.log("highlightedDays:", highlightedDays);
 
   const goToPreviousMonth = () => {
     if (currentMonth === 0) {
@@ -28,6 +29,9 @@ const Calendar = ({ highlightedDays }) => {
   const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth()); // Bieżący miesiąc
 
   const days = getMonthDays(currentYear, currentMonth);
+  console.log(currentYear);
+  console.log(currentMonth);
+  console.log(days);
 
   return (
     <div>
