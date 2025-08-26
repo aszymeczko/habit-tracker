@@ -16,30 +16,23 @@ const Calendar = memo(({ highlightedDays = [] }) => {
 
   const days = getMonthDays(currentYear, currentMonth);
 
-  // const localHighlightedDays = Object.fromEntries(
-  //     highlightedDays.map(h => [h.date, h.color])
-  // );
-
-  const localHighlightedDays =
-    location.pathname === "/habits"
-      ? Object.fromEntries(highlightedDays.map((h) => [h.date, h.color]))
-      : data
-          .flatMap((habit) =>
-            (habit.completedDates || []).map((date) => ({
-              date,
-              name: habit.name, // Dodajemy nazwę nawyku
-              color: habit.color, // Kolor nawyku
-            })),
-          )
-          .reduce((acc, { date, name, color }) => {
-            if (!acc[date]) {
-              acc[date] = []; // Inicjalizujemy pustą tablicę, jeśli brak wpisu dla daty
-            }
-            acc[date].push({ name, color }); // Dodajemy obiekt z nazwą i kolorem
-            return acc;
-          }, {});
-
-  console.log("localHighlightedDays", localHighlightedDays);
+  const localHighlightedDays = (
+    location?.pathname === "/habits" ? [highlightedDays] : data
+  )
+    ?.flatMap((habit) =>
+      (habit?.completedDates || []).map((date) => ({
+        date,
+        name: habit.name,
+        color: habit.color,
+      })),
+    )
+    .reduce((acc, { date, name, color }) => {
+      if (!acc[date]) {
+        acc[date] = []; // Inicjalizujemy jako pustą tablicę
+      }
+      acc[date].push({ name, color }); // Dodajemy nawyk (name, color)
+      return acc;
+    }, {});
 
   const goToNextMonth = () => {
     if (currentMonth === 11) {

@@ -41,16 +41,7 @@ const Habits = () => {
         </List>
       </Box>
       <Box sx={{ flex: 3 }}>
-        <Calendar
-          highlightedDays={
-            selectedHabit
-              ? selectedHabit.completedDates.map((date) => ({
-                  date,
-                  color: selectedHabit.color,
-                }))
-              : []
-          }
-        />
+        <Calendar highlightedDays={selectedHabit || {}} />
       </Box>
     </Box>
   );
