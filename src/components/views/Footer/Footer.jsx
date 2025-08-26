@@ -20,7 +20,7 @@ const Footer = () => {
       }}
     >
       <Typography variant="body2" color="textSecondary">
-        Stworzone z myślą o Tobie · Dziękujemy za zaufanie!
+        Created with you in mind · Thank you for your trust!
       </Typography>
     </Box>
   );

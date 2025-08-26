@@ -10,8 +10,6 @@ const Habits = () => {
 
   const [selectedHabit, setSelectedHabit] = useState(null); // Wybrany nawyk
 
-  const completedDays = selectedHabit?.completedDates || [];
-
   // Pobierz dane podczas ładowania komponentu
   useEffect(() => {
     dispatch(fetchHabits()); // Funkcja pobierająca dane z API
@@ -43,7 +41,16 @@ const Habits = () => {
         </List>
       </Box>
       <Box sx={{ flex: 3 }}>
-        <Calendar highlightedDays={completedDays} />
+        <Calendar
+          highlightedDays={
+            selectedHabit
+              ? selectedHabit.completedDates.map((date) => ({
+                  date,
+                  color: selectedHabit.color,
+                }))
+              : []
+          }
+        />
       </Box>
     </Box>
   );

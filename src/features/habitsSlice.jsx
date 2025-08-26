@@ -39,15 +39,9 @@ export const updateHabitProgress = createAsyncThunk(
   async ({ id, progress, isCompletedToday, completedDates }) => {
     const today = new Date().toISOString().split("T")[0];
 
-    console.log("Oryginalne completedDates:", completedDates);
-    console.log("isCompletedToday:", isCompletedToday);
-    console.log("Dzisiaj:", today);
-
     const updatedDates = isCompletedToday
       ? [...(completedDates || []), today]
       : completedDates.filter((date) => date !== today);
-
-    console.log("updatedDates", updatedDates);
 
     const response = await fetch(`${API_URL}/${id}`, {
       method: "PATCH",

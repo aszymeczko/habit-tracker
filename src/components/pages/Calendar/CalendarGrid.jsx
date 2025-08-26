@@ -1,8 +1,10 @@
 import Box from "@mui/material/Box";
+import { memo } from "react";
+import StarIcon from "@mui/icons-material/Star";
+import Tooltip from "@mui/material/Tooltip";
 
-const CalendarGrid = ({ days, highlightedDays }) => {
+const CalendarGrid = memo(({ days, highlightedDays }) => {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
   return (
     <Box sx={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
       {weekDays.map((day) => (
@@ -24,9 +26,7 @@ const CalendarGrid = ({ days, highlightedDays }) => {
           sx={{
             p: 2,
             bgcolor: day.isCurrentMonth
-              ? highlightedDays.includes(day.date)
-                ? "#C8B6FF"
-                : "primary.light"
+              ? highlightedDays[day.date] || "primary.light"
               : "grey.300",
             textAlign: "center",
           }}
@@ -36,6 +36,6 @@ const CalendarGrid = ({ days, highlightedDays }) => {
       ))}
     </Box>
   );
-};
+});
 
 export default CalendarGrid;

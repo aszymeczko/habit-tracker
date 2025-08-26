@@ -1,14 +1,8 @@
 import { useState } from "react";
-import {
-  Modal,
-  Box,
-  TextField,
-  Button,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { createHabit } from "../../../features/habitsSlice.jsx";
+import { getNextColor } from "../../../utils/utils.jsx";
 
 const AddHabitModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
@@ -17,18 +11,23 @@ const AddHabitModal = ({ open, onClose }) => {
 
   const handleSubmit = () => {
     if (name && goal > 0) {
+      const color = getNextColor();
+
       dispatch(
         createHabit({
           name,
           goal,
           progress: 0,
+          color,
           lastCompletedDate: null,
           isCompletedToday: false,
           completedDates: [],
         }),
       );
+
       setName("");
       setGoal("");
+
       onClose();
     } else {
       alert("Uzupełnij wszystkie pola!");

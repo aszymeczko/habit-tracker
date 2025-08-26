@@ -1,6 +1,6 @@
 // Funkcja generująca tablicę dni w miesiącu
 
-export function getMonthDays(year, month) {
+export const getMonthDays = (year, month) => {
   const days = [];
   let firstDay = new Date(year, month, 1).getDay();
   const lastDate = new Date(year, month + 1, 0).getDate();
@@ -21,4 +21,18 @@ export function getMonthDays(year, month) {
   }
 
   return days;
-}
+};
+2;
+// Funkcja przypisująca kolejne kolory na zasadzie sekwencji
+
+// Paleta kolorów
+const habitColors = ["#C8B6FF", "#A2D2FF", "#FFC8DD", "#B5EAD7", "#FFDAC1"];
+
+// Globalny indeks, który śledzi aktualny kolor
+let colorIndex = 0;
+
+export const getNextColor = () => {
+  const color = habitColors[colorIndex];
+  colorIndex = (colorIndex + 1) % habitColors.length; // Zapętlaj indeks
+  return color;
+};

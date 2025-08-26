@@ -1,66 +1,76 @@
 {
   "habits": [
     {
-      "id": "9bf5",
-      "name": "Trening",
-      "goal": 7,
+      "id": "8661",
+      "name": "Czytanie Wiedźmina",
+      "goal": 4,
       "progress": 1,
-      "lastCompletedDate": "2025-08-25",
+      "color": "#C8B6FF",
+      "lastCompletedDate": "2025-08-26",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-25"
+        "2025-08-26"
       ]
     },
     {
-      "id": "c134",
-      "name": "Picie 2L wody",
-      "goal": 7,
+      "id": "1fd7",
+      "name": "Matcha",
+      "goal": 5,
       "progress": 1,
-      "lastCompletedDate": "2025-08-25",
+      "color": "#A2D2FF",
+      "lastCompletedDate": "2025-08-26",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-25"
+        "2025-08-26"
       ]
     },
     {
-      "id": "d962",
-      "name": "Nauka 5h",
-      "goal": 7,
+      "id": "1461",
+      "name": "g",
+      "goal": 9,
       "progress": 1,
-      "lastCompletedDate": "2025-08-25",
+      "color": "#FFC8DD",
+      "lastCompletedDate": "2025-08-26",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-25"
+        "2025-08-26"
       ]
     },
     {
-      "id": "1b39",
-      "name": "Spanko 22:00",
-      "goal": 7,
+      "id": "d186",
+      "name": "h",
+      "goal": 6,
       "progress": 1,
-      "lastCompletedDate": "2025-08-25",
+      "color": "#B5EAD7",
+      "lastCompletedDate": "2025-08-26",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-25"
+        "2025-08-26"
       ]
     },
     {
-      "id": "8808",
-      "name": "Kolagen",
-      "goal": 7,
-      "progress": 0,
-      "lastCompletedDate": null,
-      "isCompletedToday": false,
-      "completedDates": []
+      "id": "23d8",
+      "name": "j",
+      "goal": 4,
+      "progress": 1,
+      "color": "#FFDAC1",
+      "lastCompletedDate": "2025-08-26",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-26"
+      ]
     },
     {
-      "id": "abdb",
-      "name": "Tejpy",
-      "goal": 7,
-      "progress": 0,
-      "lastCompletedDate": null,
-      "isCompletedToday": false,
-      "completedDates": []
+      "id": "8eeb",
+      "name": "sprzatanie",
+      "goal": 1,
+      "progress": 1,
+      "color": "#C8B6FF",
+      "lastCompletedDate": "2025-08-26",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-08-26"
+      ]
     }
   ]
 }
