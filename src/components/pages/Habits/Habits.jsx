@@ -10,11 +10,6 @@ const Habits = () => {
 
   const [selectedHabit, setSelectedHabit] = useState(null); // Wybrany nawyk
 
-  // Pobierz dane podczas ładowania komponentu
-  useEffect(() => {
-    dispatch(fetchHabits()); // Funkcja pobierająca dane z API
-  }, [dispatch]);
-
   // Obsługa ładowania i błędów
   if (loading) {
     return <p>Ładowanie danych...</p>;

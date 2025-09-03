@@ -9,7 +9,7 @@ const CalendarGrid = memo(({ days, highlightedDays }) => {
   const location = useLocation();
 
   const isCalendarPage = location.pathname === "/calendar";
-  console.log("highlightedDays", highlightedDays);
+
   return (
     <Box sx={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
       {/* Dni tygodnia */}
