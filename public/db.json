@@ -1,69 +1,79 @@
 {
   "habits": [
     {
-      "id": "8661",
-      "name": "Czytanie Wiedźmina",
-      "goal": 4,
+      "id": "8e22",
+      "name": "Trening",
+      "goal": 7,
       "progress": 2,
       "color": "#C8B6FF",
-      "lastCompletedDate": "2025-09-03",
+      "lastCompletedDate": "2025-09-15",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-25",
-        "2025-08-20",
-        "2025-08-26",
-        "2025-09-03"
+        "2025-09-05",
+        "2025-09-15"
       ]
     },
     {
-      "id": "1fd7",
+      "id": "51f1",
       "name": "Matcha",
-      "goal": 5,
+      "goal": 4,
       "progress": 2,
       "color": "#A2D2FF",
-      "lastCompletedDate": "2025-09-03",
+      "lastCompletedDate": "2025-09-15",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-08-01",
-        "2025-08-05",
-        "2025-08-26",
-        "2025-09-03"
+        "2025-09-05",
+        "2025-09-15"
       ]
     },
     {
-      "id": "c8ab",
-      "name": "Nauka",
-      "goal": 8,
-      "progress": 1,
-      "color": "#B5EAD7",
-      "lastCompletedDate": "2025-09-03",
+      "id": "5548",
+      "name": "Spanko 22:00",
+      "goal": 7,
+      "progress": 2,
+      "color": "#FFC8DD",
+      "lastCompletedDate": "2025-09-15",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-03"
+        "2025-09-05",
+        "2025-09-15"
       ]
     },
     {
-      "id": "425d",
+      "id": "ff30",
       "name": "Joga",
+      "goal": 10,
+      "progress": 2,
+      "color": "#B5EAD7",
+      "lastCompletedDate": "2025-09-15",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-09-05",
+        "2025-09-15"
+      ]
+    },
+    {
+      "id": "6b42",
+      "name": "4444",
       "goal": 6,
       "progress": 1,
       "color": "#FFDAC1",
-      "lastCompletedDate": "2025-09-03",
+      "lastCompletedDate": "2025-09-15",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-03"
+        "2025-09-15"
       ]
     },
     {
-      "id": "4c8d",
-      "name": "Trening",
-      "goal": 28,
+      "id": "e8bc",
+      "name": "u",
+      "goal": 8,
       "progress": 1,
-      "color": "#C8B6FF",
-      "lastCompletedDate": "2025-09-03",
+      "color": "#FFB7B2",
+      "lastCompletedDate": "2025-09-15",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-03"
+        "2025-09-15"
       ]
     }
   ]

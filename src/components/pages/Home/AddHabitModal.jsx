@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createHabit } from "../../../features/habitsSlice.jsx";
 import { getNextColor } from "../../../utils/utils.jsx";
 
 const AddHabitModal = ({ open, onClose }) => {
   const dispatch = useDispatch();
+  const habitsCount = useSelector((state) => state.habit.data.length);
+
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
 
   const handleSubmit = () => {
     if (name && goal > 0) {
-      const color = getNextColor();
+      const color = getNextColor(habitsCount);
 
       dispatch(
         createHabit({

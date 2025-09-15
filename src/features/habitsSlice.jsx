@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import initialState from "../redux/initialState.jsx";
+import { decreaseColorIndex } from "../utils/utils.jsx";
 
 // URL API
 const API_URL = "http://localhost:5001/habits";
@@ -101,6 +102,7 @@ const habitSlice = createSlice({
       // Usuwanie nawyku
       .addCase(deleteHabit.fulfilled, (state, action) => {
         state.data = state.data.filter((habit) => habit.id !== action.payload);
+        decreaseColorIndex();
       })
       // Aktualizacja nawyku
       .addCase(updateHabitProgress.fulfilled, (state, action) => {

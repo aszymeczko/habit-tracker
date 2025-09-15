@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 
 const CalendarSubpage = () => {
   const { data: habits, loading, error } = useSelector((state) => state.habit);
-  habits.forEach((habit) => console.log(habit.color));
   if (loading) {
     return <p>Ładowanie danych...</p>;
   }
@@ -22,6 +21,7 @@ const CalendarSubpage = () => {
       <Box sx={{ display: "flex", gap: "40px" }}>
         {habits.map((habit) => (
           <Box
+            key={habit.id}
             sx={{
               display: "flex",
               alignItems: "center",

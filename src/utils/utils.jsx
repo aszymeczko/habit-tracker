@@ -22,17 +22,28 @@ export const getMonthDays = (year, month) => {
 
   return days;
 };
-2;
+
 // Funkcja przypisująca kolejne kolory na zasadzie sekwencji
 
 // Paleta kolorów
-const habitColors = ["#C8B6FF", "#A2D2FF", "#FFC8DD", "#B5EAD7", "#FFDAC1"];
+const habitColors = [
+  "#C8B6FF",
+  "#A2D2FF",
+  "#FFC8DD",
+  "#B5EAD7",
+  "#FFDAC1",
+  "#FFB7B2",
+];
 
 // Globalny indeks, który śledzi aktualny kolor
 let colorIndex = 0;
 
-export const getNextColor = () => {
-  const color = habitColors[colorIndex];
-  colorIndex = (colorIndex + 1) % habitColors.length; // Zapętlaj indeks
-  return color;
+export const getNextColor = (habitsCount) => {
+  return habitColors[habitsCount % habitColors.length];
+};
+
+// Funkcja zmniejszania colorIndex
+export const decreaseColorIndex = () => {
+  colorIndex = Math.max(0, colorIndex - 1); // Upewnij się, że nie będzie ujemny
+  console.log("colorIndex", colorIndex);
 };

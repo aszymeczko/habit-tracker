@@ -25,7 +25,13 @@ const Home = () => {
     dispatch(fetchHabits());
   }, [dispatch]);
 
-  const handleOpenModal = () => setModalOpen(true);
+  const handleOpenModal = () => {
+    if (habits.length >= 6) {
+      alert("Możesz mieć maksymalnie 6 nawyków!");
+      return;
+    }
+    setModalOpen(true);
+  };
   const handleCloseModal = () => setModalOpen(false);
 
   const handleCardClick = (
@@ -224,6 +230,7 @@ const Home = () => {
                   mt: "10px",
                   display: "flex",
                   alignItems: "center",
+                  textAlign: "center",
                 }}
               >
                 {habit.name}
