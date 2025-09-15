@@ -20,22 +20,42 @@ const Habits = () => {
   }
 
   return (
-    <Box sx={{ display: "flex", gap: 3 }}>
+    <Box sx={{ display: "flex", gap: 3, my: 4 }}>
       <Box sx={{ flex: 1 }}>
-        <List>
+        <List
+          sx={{
+            padding: 2,
+            mt: 15,
+          }}
+        >
           {habits.map((habit) => (
             <ListItem
               key={habit.id}
               component="button"
               selected={selectedHabit?.id === habit.id}
               onClick={() => setSelectedHabit(habit)}
+              sx={{
+                backgroundColor:
+                  selectedHabit?.id === habit.id ? habit.color : "inherit",
+                "&:hover": {
+                  backgroundColor:
+                    selectedHabit?.id === habit.id ? habit.color : "#e0e0e0",
+                  cursor: "pointer",
+                },
+                padding: "12px 16px",
+                mb: 2,
+                borderRadius: 2,
+                border: "1px solid #ccc",
+                justifyContent: "center",
+                fontSize: "16px",
+              }}
             >
-              {habit.name} ({habit.progress}/ {habit.goal})
+              {habit.name}
             </ListItem>
           ))}
         </List>
       </Box>
-      <Box sx={{ flex: 3 }}>
+      <Box sx={{ flex: 4 }}>
         <Calendar highlightedDays={selectedHabit || {}} />
       </Box>
     </Box>

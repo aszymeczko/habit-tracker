@@ -130,6 +130,7 @@ const Home = () => {
             display: "flex",
             justifyContent: "center",
             fontSize: 45,
+            ml: 24,
           }}
         >
           My Habits
@@ -161,8 +162,9 @@ const Home = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 2,
+          gap: 3,
           mt: 4,
+          justifyContent: "center",
         }}
       >
         {filteredHabits.map((habit) => {
@@ -184,8 +186,8 @@ const Home = () => {
               }
               sx={{
                 position: "relative",
-                width: "300px",
-                height: "250px",
+                width: "350px",
+                height: "300px",
                 padding: 2,
                 borderRadius: "16px",
                 display: "flex",

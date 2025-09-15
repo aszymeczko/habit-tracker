@@ -39,7 +39,7 @@ const habitColors = [
 let colorIndex = 0;
 
 export const getNextColor = (habitsCount) => {
-  return habitColors[habitsCount % habitColors.length];
+  return habitColors[habitsCount];
 };
 
 // Funkcja zmniejszania colorIndex
