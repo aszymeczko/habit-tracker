@@ -20,6 +20,15 @@ export const getMonthDays = (year, month) => {
     days.push({ day, isCurrentMonth: true, date });
   }
 
+  // Dodaj puste sloty na końcu miesiąca
+  const remaining = days.length % 7;
+  if (remaining !== 0) {
+    const slotsToAdd = 7 - remaining;
+    for (let i = 0; i < slotsToAdd; i++) {
+      days.push({ day: null, isCurrentMonth: false });
+    }
+  }
+
   return days;
 };
 

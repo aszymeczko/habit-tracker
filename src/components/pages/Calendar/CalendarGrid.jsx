@@ -3,6 +3,7 @@ import { memo } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import StarIcon from "@mui/icons-material/Star";
 import { useLocation } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 const CalendarGrid = memo(({ days, highlightedDays }) => {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -49,18 +50,23 @@ const CalendarGrid = memo(({ days, highlightedDays }) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
+              ...(isCalendarPage && {
+                minHeight: 85,
+                minWidth: 150,
+              }),
             }}
           >
-            <span>{day.day}</span>
+            <Typography>{day.day}</Typography>
 
             {/* /calendar */}
-            {isCalendarPage && day.isCurrentMonth && habits.length > 0 && (
-              <Box sx={{ mt: 1, display: "flex", gap: "4px" }}>
-                {habits.map((habit, idx) => (
-                  <Tooltip title={habit.name} key={idx}>
-                    <StarIcon sx={{ fontSize: 20, color: habit.color }} />
-                  </Tooltip>
-                ))}
+            {isCalendarPage && (
+              <Box sx={{ mt: 1, display: "flex", gap: "4px", minHeight: 24 }}>
+                {day.isCurrentMonth &&
+                  habits.map((habit, idx) => (
+                    <Tooltip title={habit.name} key={idx}>
+                      <StarIcon sx={{ fontSize: 20, color: habit.color }} />
+                    </Tooltip>
+                  ))}
               </Box>
             )}
           </Box>

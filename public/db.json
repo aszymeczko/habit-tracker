@@ -1,79 +1,75 @@
 {
   "habits": [
     {
-      "id": "8e22",
+      "id": "cb3c",
       "name": "Trening",
-      "goal": 7,
-      "progress": 2,
+      "goal": 14,
+      "progress": 1,
       "color": "#C8B6FF",
-      "lastCompletedDate": "2025-09-15",
+      "lastCompletedDate": "2025-09-16",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-05",
-        "2025-09-15"
+        "2025-09-16"
       ]
     },
     {
-      "id": "51f1",
-      "name": "Matcha",
-      "goal": 4,
-      "progress": 2,
-      "color": "#A2D2FF",
-      "lastCompletedDate": "2025-09-15",
-      "isCompletedToday": true,
-      "completedDates": [
-        "2025-09-05",
-        "2025-09-15"
-      ]
-    },
-    {
-      "id": "5548",
-      "name": "Spanko 22:00",
-      "goal": 7,
-      "progress": 2,
-      "color": "#FFC8DD",
-      "lastCompletedDate": "2025-09-15",
-      "isCompletedToday": true,
-      "completedDates": [
-        "2025-09-05",
-        "2025-09-15"
-      ]
-    },
-    {
-      "id": "ff30",
+      "id": "487c",
       "name": "Joga",
-      "goal": 10,
-      "progress": 2,
-      "color": "#B5EAD7",
-      "lastCompletedDate": "2025-09-15",
+      "goal": 7,
+      "progress": 1,
+      "color": "#A2D2FF",
+      "lastCompletedDate": "2025-09-16",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-05",
-        "2025-09-15"
+        "2025-09-16"
       ]
     },
     {
-      "id": "5e3e",
-      "name": "y",
+      "id": "6951",
+      "name": "2l wody",
       "goal": 6,
       "progress": 1,
-      "color": "#FFDAC1",
-      "lastCompletedDate": "2025-09-15",
+      "color": "#FFC8DD",
+      "lastCompletedDate": "2025-09-16",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-15"
+        "2025-09-16"
       ]
     },
     {
-      "id": "e914",
-      "name": "u",
-      "goal": 9,
+      "id": "ee38",
+      "name": "Matcha",
+      "goal": 2,
       "progress": 1,
-      "color": "#FFB7B2",
-      "lastCompletedDate": "2025-09-15",
+      "color": "#B5EAD7",
+      "lastCompletedDate": "2025-09-16",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-15"
+        "2025-09-16"
+      ]
+    },
+    {
+      "id": "c3d2",
+      "name": "Spanko 22:00",
+      "goal": 1,
+      "progress": 1,
+      "color": "#FFDAC1",
+      "lastCompletedDate": "2025-09-16",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-09-16"
+      ]
+    },
+    {
+      "id": "b6ce",
+      "name": "Suplementy",
+      "goal": 10,
+      "progress": 1,
+      "color": "#FFB7B2",
+      "lastCompletedDate": "2025-09-16",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-09-16"
       ]
     }
   ]

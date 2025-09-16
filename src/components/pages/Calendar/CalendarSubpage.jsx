@@ -15,7 +15,7 @@ const CalendarSubpage = () => {
 
   return (
     <Box>
-      <Box sx={{ mb: "30px" }}>
+      <Box sx={{ my: 4 }}>
         <Calendar />
       </Box>
       <Box sx={{ display: "flex", gap: "40px" }}>
