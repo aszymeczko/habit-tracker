@@ -44,12 +44,17 @@ export const updateHabitProgress = createAsyncThunk(
       ? [...(completedDates || []), today]
       : completedDates.filter((date) => date !== today);
 
+    const lastCompletedDate =
+      updatedDates.length > 0
+        ? updatedDates[updatedDates.length - 1] // ostatnia w tablicy
+        : null;
+
     const response = await fetch(`${API_URL}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         progress,
-        lastCompletedDate: progress > 0 ? today : null, // Jeśli progress > 0, aktualizujemy datę
+        lastCompletedDate,
         isCompletedToday,
         completedDates: [...new Set(updatedDates)],
       }),
