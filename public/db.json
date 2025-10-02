@@ -3,73 +3,115 @@
     {
       "id": "cb3c",
       "name": "Trening",
-      "goal": 14,
-      "progress": 1,
+      "goal": 30,
+      "progress": 3,
       "color": "#C8B6FF",
-      "lastCompletedDate": "2025-09-16",
+      "lastCompletedDate": "2025-10-01",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-16"
+        "2025-09-09",
+        "2025-09-10",
+        "2025-09-11",
+        "2025-09-12",
+        "2025-09-13",
+        "2025-09-14",
+        "2025-09-15",
+        "2025-09-16",
+        "2025-09-30",
+        "2025-10-01"
       ]
     },
     {
       "id": "487c",
       "name": "Joga",
-      "goal": 7,
-      "progress": 1,
+      "goal": 30,
+      "progress": 3,
       "color": "#A2D2FF",
-      "lastCompletedDate": "2025-09-16",
+      "lastCompletedDate": "2025-10-01",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-16"
+        "2025-09-09",
+        "2025-09-10",
+        "2025-09-11",
+        "2025-09-12",
+        "2025-09-13",
+        "2025-09-14",
+        "2025-09-15",
+        "2025-09-16",
+        "2025-09-30",
+        "2025-10-01"
       ]
     },
     {
       "id": "6951",
       "name": "2l wody",
-      "goal": 6,
-      "progress": 1,
+      "goal": 30,
+      "progress": 3,
       "color": "#FFC8DD",
-      "lastCompletedDate": "2025-09-16",
+      "lastCompletedDate": "2025-10-01",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-16"
+        "2025-09-09",
+        "2025-09-10",
+        "2025-09-11",
+        "2025-09-12",
+        "2025-09-13",
+        "2025-09-14",
+        "2025-09-15",
+        "2025-09-16",
+        "2025-09-30",
+        "2025-10-01"
       ]
     },
     {
       "id": "ee38",
       "name": "Matcha",
-      "goal": 2,
-      "progress": 1,
+      "goal": 30,
+      "progress": 3,
       "color": "#B5EAD7",
-      "lastCompletedDate": "2025-09-16",
+      "lastCompletedDate": "2025-10-01",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-16"
-      ]
-    },
-    {
-      "id": "c3d2",
-      "name": "Spanko 22:00",
-      "goal": 1,
-      "progress": 1,
-      "color": "#FFDAC1",
-      "lastCompletedDate": "2025-09-16",
-      "isCompletedToday": true,
-      "completedDates": [
-        "2025-09-16"
+        "2025-09-09",
+        "2025-09-10",
+        "2025-09-11",
+        "2025-09-12",
+        "2025-09-13",
+        "2025-09-14",
+        "2025-09-16",
+        "2025-09-30",
+        "2025-10-01"
       ]
     },
     {
       "id": "b6ce",
       "name": "Suplementy",
-      "goal": 10,
-      "progress": 1,
+      "goal": 30,
+      "progress": 3,
       "color": "#FFB7B2",
-      "lastCompletedDate": "2025-09-16",
+      "lastCompletedDate": "2025-10-01",
       "isCompletedToday": true,
       "completedDates": [
-        "2025-09-16"
+        "2025-09-09",
+        "2025-09-12",
+        "2025-09-13",
+        "2025-09-14",
+        "2025-09-15",
+        "2025-09-16",
+        "2025-09-30",
+        "2025-10-01"
+      ]
+    },
+    {
+      "id": "758e",
+      "name": "nowy habbit",
+      "goal": 6,
+      "progress": 1,
+      "color": "#FFB7B2",
+      "lastCompletedDate": "2025-10-01",
+      "isCompletedToday": true,
+      "completedDates": [
+        "2025-10-01"
       ]
     }
   ]

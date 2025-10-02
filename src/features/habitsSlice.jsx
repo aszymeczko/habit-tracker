@@ -40,14 +40,28 @@ export const updateHabitProgress = createAsyncThunk(
   async ({ id, progress, isCompletedToday, completedDates }) => {
     const today = new Date().toISOString().split("T")[0];
 
-    const updatedDates = isCompletedToday
-      ? [...(completedDates || []), today]
-      : completedDates.filter((date) => date !== today);
+    // 1. Logika: Dodajemy lub usuwamy datę
+    let newCompletedDates;
+    if (isCompletedToday) {
+      // Jeśli oznaczamy jako ukończone: dodaj dzisiejszą datę, ale tylko jeśli jej nie ma
+      const currentDates = completedDates || [];
+      if (!currentDates.includes(today)) {
+        newCompletedDates = [...currentDates, today];
+      } else {
+        newCompletedDates = currentDates;
+      }
+    } else {
+      // Jeśli odznaczamy: usuń dzisiejszą datę
+      newCompletedDates = (completedDates || []).filter(
+        (date) => date !== today,
+      );
+    }
 
+    // 2. Ustalenie nowej lastCompletedDate
+    // Sortowanie gwarantuje, że ostatni element to najnowsza data
+    const sortedDates = newCompletedDates.sort();
     const lastCompletedDate =
-      updatedDates.length > 0
-        ? updatedDates[updatedDates.length - 1] // ostatnia w tablicy
-        : null;
+      sortedDates.length > 0 ? sortedDates[sortedDates.length - 1] : null;
 
     const response = await fetch(`${API_URL}/${id}`, {
       method: "PATCH",
@@ -55,8 +69,8 @@ export const updateHabitProgress = createAsyncThunk(
       body: JSON.stringify({
         progress,
         lastCompletedDate,
-        isCompletedToday,
-        completedDates: [...new Set(updatedDates)],
+        isCompletedToday, // Wysłanie aktualnego stanu do serwera (opcjonalnie)
+        completedDates: newCompletedDates,
       }),
     });
 
@@ -110,17 +124,17 @@ const habitSlice = createSlice({
         decreaseColorIndex();
       })
       // Aktualizacja nawyku
+      // Aktualizacja nawyku
       .addCase(updateHabitProgress.fulfilled, (state, action) => {
         const index = state.data.findIndex(
           (habit) => habit.id === action.payload.id,
         );
         if (index !== -1) {
+          // Użyj rozpakowania (spread) do zaktualizowania habitu
           state.data[index] = {
             ...state.data[index],
-            progress: action.payload.progress,
-            isCompletedToday: action.payload.isCompletedToday,
-            lastCompletedDate: action.payload.lastCompletedDate,
-            completedDates: action.payload.completedDates,
+            ...action.payload, // Wczytaj wszystkie zaktualizowane pola z API
+            // Ponieważ action.payload zawiera: progress, isCompletedToday, lastCompletedDate, completedDates
           };
         }
       });
