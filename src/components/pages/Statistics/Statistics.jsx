@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import BarChart from "../../common/Chart/BarChart.jsx";
 import { Box, Button } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
+import DoughnutChartList from "../../common/Chart/DoughnutChartList.jsx";
 
 const Statistics = () => {
   const habits = useSelector((state) => state.habit.data || []);
@@ -30,6 +31,7 @@ const Statistics = () => {
       </Box>
 
       <BarChart habits={habits} weekOffset={weekOffset} />
+      <DoughnutChartList habits={habits} />
     </Box>
   );
 };
