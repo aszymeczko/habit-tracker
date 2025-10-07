@@ -1,16 +1,18 @@
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import { Card, CardContent } from "@mui/material";
 
-const BarChart = ({ habits, weekOffset }) => {
+const BarChart = ({ habits = [], weekOffset }) => {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
 
-  // Oblicz daty dla danego tygodnia
+  // Oblicz daty dla danego tygodnia (zwrot: YYYY-MM-DD)
   const getWeekDays = (offset) => {
     const today = new Date();
-    const currentDay = today.getDay(); // niedziela = 0, poniedziałek = 1, ...
+    const currentDay = today.getDay();
     const monday = new Date(today);
-    monday.setDate(today.getDate() - currentDay + 1 + offset * 7);
+    const daysToMonday = (currentDay + 6) % 7;
+    monday.setDate(today.getDate() - daysToMonday + offset * 7);
 
     return Array.from({ length: 7 }, (_, i) => {
       const d = new Date(monday);
@@ -21,16 +23,36 @@ const BarChart = ({ habits, weekOffset }) => {
 
   const weekDays = getWeekDays(weekOffset);
 
-  // przygotuj dane dla wykresu
+  // zamienia creationDate (z czasem) -> YYYY-MM-DD
+  const toDateOnly = (dateValue) => {
+    if (!dateValue) return null;
+    const d = new Date(dateValue);
+    if (isNaN(d)) return null;
+    return d.toISOString().split("T")[0];
+  };
+
+  // przygotuj dane dla wykresu (liczymy tylko "active" nawyki, które istniały danego dnia)
   const chartData = weekDays.map((day) => {
-    const completedCount = habits.filter((habit) =>
-      habit.completedDates.includes(day),
+    const activeHabits = habits.filter((habit) => {
+      const creationDay = toDateOnly(habit.creationDate);
+      return creationDay <= day;
+    });
+
+    const completedCount = activeHabits.filter((habit) =>
+      (habit.completedDates || []).includes(day),
     ).length;
+
     const percent =
-      habits.length > 0
-        ? Math.round((completedCount / habits.length) * 100)
+      activeHabits.length > 0
+        ? Math.round((completedCount / activeHabits.length) * 100)
         : 0;
-    return { day, percent, completed: completedCount };
+
+    return {
+      day,
+      percent,
+      completed: completedCount,
+      activeCount: activeHabits.length,
+    };
   });
 
   const labels = weekDays.map((d) =>
@@ -53,7 +75,7 @@ const BarChart = ({ habits, weekOffset }) => {
         labels,
         datasets: [
           {
-            label: "Procent wykonanych nawyków",
+            label: "% of habits completed",
             data: chartData.map((c) => c.percent),
             backgroundColor: "#A2D2FF",
             borderRadius: 8,
@@ -62,36 +84,46 @@ const BarChart = ({ habits, weekOffset }) => {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
+          title: {
+            display: true,
+            text: "Weekly Habits Progress",
+            font: {
+              size: 18,
+            },
+            color: "#333",
+          },
           tooltip: {
             callbacks: {
-              title: () => "", // brak daty
+              title: () => "",
               label: (context) => {
                 const percent = context.formattedValue + "%";
                 const day = weekDays[context.dataIndex];
-                const completedHabits = habits.filter((habit) =>
-                  habit.completedDates.includes(day),
+
+                // ponownie obliczamy activeHabits w tooltip (tak by tooltip był zgodny z wykresem)
+                const activeHabits = habits.filter((habit) => {
+                  if (!habit.creationDate) return true;
+                  const creationDay = toDateOnly(habit.creationDate);
+                  if (!creationDay) return true;
+                  return creationDay <= day;
+                });
+
+                const completedHabits = activeHabits.filter((h) =>
+                  (h.completedDates || []).includes(day),
                 );
 
-                const countInfo = `${completedHabits.length}/${habits.length}`;
-
-                if (completedHabits.length === 0) {
-                  return [
-                    `${percent} (${countInfo})`,
-                    "Brak ukończonych nawyków",
-                  ];
-                }
+                const countInfo = `${completedHabits.length}/${activeHabits.length}`;
 
                 return [
-                  `${percent} (${countInfo})`, // np. "67% (5/6)"
+                  `${percent} (${countInfo})`,
                   ...completedHabits.map((h) => `• ${h.name}`),
                 ];
               },
             },
           },
-
           legend: {
-            display: false,
+            display: true,
           },
         },
         scales: {
@@ -105,9 +137,15 @@ const BarChart = ({ habits, weekOffset }) => {
         },
       },
     });
-  }, [habits, weekOffset]);
+  }, [habits, weekOffset]); // zmiana danych -> przebuduj wykres
 
-  return <canvas ref={chartRef}></canvas>;
+  return (
+    <Card sx={{ maxWidth: 900 }}>
+      <CardContent>
+        <canvas ref={chartRef} style={{ width: "100%", height: 400 }} />
+      </CardContent>
+    </Card>
+  );
 };
 
 export default BarChart;

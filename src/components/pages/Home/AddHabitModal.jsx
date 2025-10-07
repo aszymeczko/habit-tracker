@@ -24,6 +24,7 @@ const AddHabitModal = ({ open, onClose }) => {
           lastCompletedDate: null,
           isCompletedToday: false,
           completedDates: [],
+          creationDate: new Date(),
         }),
       );
 

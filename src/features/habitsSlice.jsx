@@ -124,7 +124,6 @@ const habitSlice = createSlice({
         decreaseColorIndex();
       })
       // Aktualizacja nawyku
-      // Aktualizacja nawyku
       .addCase(updateHabitProgress.fulfilled, (state, action) => {
         const index = state.data.findIndex(
           (habit) => habit.id === action.payload.id,

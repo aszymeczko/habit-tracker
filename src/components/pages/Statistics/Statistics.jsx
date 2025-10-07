@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import BarChart from "../../common/Chart/BarChart.jsx";
+import { Box, Button } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 const Statistics = () => {
   const habits = useSelector((state) => state.habit.data || []);
@@ -8,23 +10,27 @@ const Statistics = () => {
   const [weekOffset, setWeekOffset] = useState(0);
 
   return (
-    <div>
-      <h2>Weekly statistics</h2>
-      <div style={{ marginBottom: 16 }}>
-        <button onClick={() => setWeekOffset(weekOffset - 1)}>Last week</button>
-        <button
+    <Box>
+      <Box>
+        <IconButton onClick={() => setWeekOffset(weekOffset - 1)}>
+          {"<"}
+        </IconButton>
+        <Button
+          onClick={() => setWeekOffset(0)}
+          style={{ marginLeft: 8, color: "black" }}
+        >
+          Current week
+        </Button>
+        <IconButton
           onClick={() => setWeekOffset(weekOffset + 1)}
           style={{ marginLeft: 8 }}
         >
-          Next week
-        </button>
-        <button onClick={() => setWeekOffset(0)} style={{ marginLeft: 8 }}>
-          Current week
-        </button>
-      </div>
+          {">"}
+        </IconButton>
+      </Box>
 
       <BarChart habits={habits} weekOffset={weekOffset} />
-    </div>
+    </Box>
   );
 };
 
