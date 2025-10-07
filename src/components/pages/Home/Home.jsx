@@ -27,7 +27,7 @@ const Home = () => {
 
   const handleOpenModal = () => {
     if (habits.length >= 6) {
-      alert("Możesz mieć maksymalnie 6 nawyków!");
+      alert("You can have a maximum of 6 habits!");
       return;
     }
     setModalOpen(true);
@@ -45,13 +45,13 @@ const Home = () => {
 
     // Sprawdź, czy jest już wykonane na dziś
     if (isCompletedToday) {
-      alert("Ten nawyk został już dzisiaj wykonany!");
+      alert("This habit has already been completed today!");
       return;
     }
 
     // Sprawdź, czy osiągnięto maksimum
     if (currentProgress >= goal) {
-      alert("Gratulacje! Cel już osiągnięty 🎉");
+      alert("Congratulations! You've reached your goal 🎉");
       return;
     }
     // Dodaj dzisiejszą datę, jeśli jeszcze jej nie ma w completedDates
@@ -85,7 +85,7 @@ const Home = () => {
       lastCompletedDate !== today ||
       !completedDates.includes(today)
     ) {
-      alert("Możesz cofnąć tylko dzisiejsze wykonanie nawyku!");
+      alert("You can only undo today's habit!");
       return;
     }
 
@@ -100,7 +100,7 @@ const Home = () => {
         }),
       );
     } else {
-      alert("Postęp już wynosi 0.");
+      alert("Progress is already at 0.");
     }
   };
 
@@ -155,8 +155,8 @@ const Home = () => {
 
       <AddHabitModal open={isModalOpen} onClose={handleCloseModal} />
 
-      {loading && <Typography>Ładowanie danych...</Typography>}
-      {error && <Typography color="error">Błąd: {error}</Typography>}
+      {loading && <Typography>Loading data...</Typography>}
+      {error && <Typography color="error">Error: {error}</Typography>}
 
       <Box
         sx={{
